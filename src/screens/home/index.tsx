@@ -13,9 +13,12 @@ import {
   ChartContainer,
   ChartContent,
   ChartAction,
+  Aside,
+  SearchTransaction,
 } from './styles';
 import { ButtonIcon } from '../../components/button-icon';
 import { Card } from '../../components/card';
+import { Transaction } from '../../components/transaction/inde';
 
 export function Home() {
   return (
@@ -86,6 +89,43 @@ export function Home() {
             <ChartContent></ChartContent>
           </ChartContainer>
         </Section>
+        <Aside>
+          <header>
+            <Title title="Transações" subtitle="Receitas e Gastos no período" />
+            <SearchTransaction>
+              <Input variant="black" placeholder="Procurar transação" />
+              <ButtonIcon />
+            </SearchTransaction>
+          </header>
+          <Transaction
+            id={1}
+            amount={20000}
+            date="09/09/2023"
+            category={{ title: 'Alimentação', color: '#ff00ff' }}
+            title="Mercado"
+          />
+          <Transaction
+            id={1}
+            amount={20000}
+            date="09/09/2023"
+            category={{ title: 'Alimentação', color: '#ff00ff' }}
+            title="Mercado"
+          />
+          <Transaction
+            id={1}
+            amount={20000}
+            date="09/09/2023"
+            category={{ title: 'Alimentação', color: '#ff00ff' }}
+            title="Mercado"
+          />
+          <Transaction
+            id={1}
+            amount={20000}
+            date="09/09/2023"
+            category={{ title: 'Alimentação', color: '#ff00ff' }}
+            title="Mercado"
+          />
+        </Aside>
       </Main>
     </>
   );
