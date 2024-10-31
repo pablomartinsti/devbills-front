@@ -1,5 +1,5 @@
 import { InputMask } from '@react-input/mask';
-import { Button } from '../../components/button';
+
 import { Input } from '../../components/input';
 import { Logo } from '../../components/logo';
 import { Title } from '../../components/title';
@@ -21,6 +21,7 @@ import { ButtonIcon } from '../../components/button-icon';
 import { Card } from '../../components/card';
 import { Transaction } from '../../components/transaction/inde';
 import { CreateCategoryDialog } from '../../components/create-category-dialog';
+import { CreateTransactionDialog } from '../../components/create-transaction-dialog';
 
 export function Home() {
   return (
@@ -28,7 +29,7 @@ export function Home() {
       <Header>
         <Logo />
         <div>
-          <Button>Nova Transção</Button>
+          <CreateTransactionDialog />
           <CreateCategoryDialog />
         </div>
       </Header>
@@ -79,7 +80,7 @@ export function Home() {
               <ChartAction>
                 <InputMask
                   component={Input}
-                  mask="dd/mm/aaaa"
+                  mask="aaaa"
                   replacement={{ a: /\d/ }}
                   variant="black"
                   label="Ano"
