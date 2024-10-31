@@ -12,14 +12,14 @@ export const Container = styled.div<ContainerProps>`
 
   label {
     color: ${theme.colors.white};
-    font-size: 0%.625rem;
+    font-size: 0.625rem;
   }
 
   input {
     height: 2.25rem;
     background-color: ${props => theme.colors[props.$variant]};
     border: 0;
-    border-radius: 0%.25rem;
+    border-radius: 0.25rem;
     padding: 0 0.75rem;
     color: ${theme.colors.neutral};
     font-size: 1rem;
