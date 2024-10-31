@@ -2,9 +2,7 @@ import styled from 'styled-components';
 import { theme } from '../../styles/theme';
 
 type ContainerProps = {
-  variant?: 'balance' | 'incomes' | 'expenses';
-  title: string;
-  amount: number;
+  $variant: 'balance' | 'incomes' | 'expenses';
 };
 
 const variantColorMap = {
