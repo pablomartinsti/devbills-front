@@ -22,6 +22,7 @@ import { Card } from '../../components/card';
 import { Transaction } from '../../components/transaction/inde';
 import { CreateCategoryDialog } from '../../components/create-category-dialog';
 import { CreateTransactionDialog } from '../../components/create-transaction-dialog';
+import { CategoriesPieChart } from '../../components/categories-pie-chart';
 
 export function Home() {
   return (
@@ -69,7 +70,9 @@ export function Home() {
                 subtitle="Despesas por categoria no período"
               />
             </header>
-            <ChartContent></ChartContent>
+            <ChartContent>
+              <CategoriesPieChart />
+            </ChartContent>
           </ChartContainer>
           <ChartContainer>
             <header>
