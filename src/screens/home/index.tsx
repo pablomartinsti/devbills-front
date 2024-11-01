@@ -23,6 +23,7 @@ import { Transaction } from '../../components/transaction/inde';
 import { CreateCategoryDialog } from '../../components/create-category-dialog';
 import { CreateTransactionDialog } from '../../components/create-transaction-dialog';
 import { CategoriesPieChart } from '../../components/categories-pie-chart';
+import { FinancialEvolutionBarChart } from '../../components/financial-evolution-bar-chart/indec';
 
 export function Home() {
   return (
@@ -92,7 +93,9 @@ export function Home() {
                 <ButtonIcon />
               </ChartAction>
             </header>
-            <ChartContent></ChartContent>
+            <ChartContent>
+              <FinancialEvolutionBarChart />
+            </ChartContent>
           </ChartContainer>
         </Section>
         <Aside>
