@@ -1,16 +1,19 @@
-import styled from 'styled-components';
-import { theme } from '../../styles/theme';
 import { InputNumberFormat } from '@react-input/number-format';
+import { styled } from 'styled-components';
+
+import { theme } from '../../styles/theme';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
   form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
+
   footer {
     display: flex;
     align-items: center;
@@ -28,7 +31,7 @@ export const Content = styled.div`
 export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
 
   > label {
     color: ${theme.colors.white};
@@ -60,11 +63,12 @@ export const CurrencyInput = styled(InputNumberFormat)`
   font-size: 1rem;
   width: 100%;
   border: 1px solid transparent;
-  transition: all 100ms;
+  transform: all 100ms;
 
   &:focus {
     border-color: ${theme.colors.primary};
   }
+
   &::placeholder {
     color: ${theme.colors.neutral};
   }
@@ -86,8 +90,16 @@ export const RadioGroup = styled.div`
     height: 1rem;
     accent-color: ${theme.colors.primary};
   }
+
   label {
     color: ${theme.colors.white};
     font-size: 0.875rem;
   }
+`;
+
+export const ErrorMessage = styled.span`
+  margin-top: 0.125rem;
+  font-size: 0.625rem;
+  line-height: 80%;
+  color: ${theme.colors.error};
 `;

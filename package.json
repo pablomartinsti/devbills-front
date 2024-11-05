@@ -11,16 +11,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
     "@nivo/bar": "^0.87.0",
     "@nivo/pie": "^0.87.0",
     "@phosphor-icons/react": "^2.1.7",
     "@radix-ui/react-dialog": "^1.1.2",
     "@react-input/mask": "^1.2.11",
     "@react-input/number-format": "^1.1.1",
+    "axios": "^1.7.7",
     "dayjs": "^1.11.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^6.1.13"
+    "react-hook-form": "^7.53.1",
+    "styled-components": "^6.1.13",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
