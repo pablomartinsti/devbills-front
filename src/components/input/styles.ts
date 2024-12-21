@@ -1,13 +1,15 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
+
 import { theme } from '../../styles/theme';
 
 type ContainerProps = {
   $variant: 'black' | 'dark';
 };
+
 export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.125rem;
   width: 100%;
 
   label {
@@ -34,5 +36,12 @@ export const Container = styled.div<ContainerProps>`
     &::placeholder {
       color: ${theme.colors.neutral};
     }
+  }
+
+  span {
+    margin-top: 0.125rem;
+    font-size: 0.625rem;
+    line-height: 90%;
+    color: ${theme.colors.error};
   }
 `;
