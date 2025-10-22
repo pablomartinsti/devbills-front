@@ -34,7 +34,7 @@ export function CreateTransactionDialog() {
       categoryId: 'null',
       title: '',
       amount: '',
-      date: dayjs('2024-01-01').format('DD/MM/YYYY'),
+      date: dayjs().format('DD/MM/YYYY'),
       type: 'income',
     },
     resolver: zodResolver(createTransactionSchema),
