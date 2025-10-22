@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { X } from '@phosphor-icons/react';
 import { InputMask } from '@react-input/mask';
-import dayjs from 'dayjs';
+
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -41,14 +41,21 @@ import {
 } from './styles';
 import { FinancialEvolutionBarChart } from '../../components/financial-evolution-bar-chart/indec';
 import { Transaction } from '../../components/transaction/inde';
+import { formatDate } from '../../utils/format-date';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 
 export function Home() {
   const transactionsFilterForm = useForm<TransactionsFilterData>({
     defaultValues: {
       title: '',
       categoryId: '',
-      beginDate: dayjs().startOf('month').format('DD/MM/YYYY'),
-      endDate: dayjs().endOf('month').format('DD/MM/YYYY'),
+      beginDate: dayjs().utc().startOf('month').format('DD/MM/YYYY'),
+      endDate: dayjs()
+        .utc()
+        .date(dayjs().utc().daysInMonth())
+        .format('DD/MM/YYYY'),
     },
     resolver: zodResolver(transactionsFilterSchema),
   });
@@ -102,21 +109,25 @@ export function Home() {
     await fetchTransactions(transactionsFilterForm.getValues());
   }, [transactionsFilterForm, fetchTransactions]);
 
-  const onSubmitTransactions = useCallback(
-    async (data: TransactionsFilterData) => {
-      await fetchTransactions(data);
-    },
-    [fetchTransactions],
-  );
-
   const onSubmitDashboard = useCallback(
     async (data: TransactionsFilterData) => {
-      const { beginDate, endDate } = data;
+      const beginDate = formatDate(data.beginDate);
+      const endDate = formatDate(data.endDate);
 
       await fetchDashboard({ beginDate, endDate });
-      await fetchTransactions(data);
+      await fetchTransactions({ ...data, beginDate, endDate });
     },
     [fetchDashboard, fetchTransactions],
+  );
+
+  const onSubmitTransactions = useCallback(
+    async (data: TransactionsFilterData) => {
+      const beginDate = formatDate(data.beginDate);
+      const endDate = formatDate(data.endDate);
+
+      await fetchTransactions({ ...data, beginDate, endDate });
+    },
+    [fetchTransactions],
   );
 
   const onSubmitFinancialEvolution = useCallback(
